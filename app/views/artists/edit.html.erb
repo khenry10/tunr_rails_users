@@ -13,6 +13,4 @@
   <%= f.submit %>
 <% end %>
 
-<%= form_for @artist, method: :delete do |f| %>
-  <%= f.submit "Delete!", class: "delete" %>
-<% end %>
+<%= link_to "Delete", @artist, method: :delete, class: "delete" %>
