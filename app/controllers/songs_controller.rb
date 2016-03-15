@@ -6,12 +6,14 @@ class SongsController < ApplicationController
 
   # new
   def new
+    return unless authorized
     @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.new
   end
 
   # create
   def create
+    return unless authorized
     @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.create(song_params)
 
@@ -25,11 +27,13 @@ class SongsController < ApplicationController
 
   # edit
   def edit
+    return unless authorized
     @song = Song.find(params[:id])
   end
 
   # update
   def update
+    return unless authorized
     @song = Song.find(params[:id])
     @song.update(song_params)
 
@@ -38,6 +42,7 @@ class SongsController < ApplicationController
 
   # destroy
   def destroy
+    return unless authorized
     @song = Song.find(params[:id])
     @song.destroy
 

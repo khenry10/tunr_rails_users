@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       @user = User.find_by(username: params[:user][:username])
       if @user.password === params[:user][:password]
         puts "You're signed in!"
+        session[:user_id] = @user.id
         redirect_to :root
       else
         puts "Wrong password!"
@@ -22,6 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     puts "You're signed out!"
+    reset_session
     redirect_to :root
   end
 

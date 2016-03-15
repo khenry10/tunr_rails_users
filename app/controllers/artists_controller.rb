@@ -6,11 +6,13 @@ class ArtistsController < ApplicationController
 
   # new
   def new
+    return unless authorized
     @artist = Artist.new
   end
 
   # create
   def create
+    return unless authorized
     @artist = Artist.create!(artist_params)
 
     redirect_to @artist
@@ -23,12 +25,14 @@ class ArtistsController < ApplicationController
 
   # edit
   def edit
+    return unless authorized
     @artist = Artist.find(params[:id])
   end
 
 
   # update
   def update
+    return unless authorized
     @artist = Artist.find(params[:id])
     @artist.update(artist_params)
 
@@ -37,6 +41,7 @@ class ArtistsController < ApplicationController
 
   # destroy
   def destroy
+    return unless authorized
     @artist = Artist.find(params[:id])
     @artist.destroy
 

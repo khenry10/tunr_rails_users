@@ -1,9 +1,9 @@
-<h2><%= @artist.name %> <%= link_to "(edit)", edit_artist_path(@artist) %></h2>
+<h2><%= @artist.name %> <%= link_to("(edit)", edit_artist_path(@artist)) if @current_user %></h2>
 <h4><%= @artist.nationality %></h4>
 
 <%= image_tag @artist.photo_url, class: "artist-photo" %>
 
-<h3>Songs <%= link_to "(+)", new_artist_song_path(@artist) %></h3>
+<h3>Songs <%= link_to("(+)", new_artist_song_path(@artist)) if @current_user %></h3>
 
 <ul>
   <% @artist.songs.each do |song| %>
