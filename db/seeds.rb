@@ -12,6 +12,9 @@ require_relative './artist_data.rb'
 
 Song.destroy_all
 Artist.destroy_all
+User.destroy_all
+
+@test_user = User.create(username: "juan", password: "foo")
 
 song_data = get_song_data()
 artist_data = get_artist_data()
@@ -21,7 +24,8 @@ song_data.each_pair do |artist_name, songs|
   current_artist = Artist.create!({
     name:         info[:name],
     photo_url:    info[:photo_url],
-    nationality:  info[:nationality]
+    nationality:  info[:nationality],
+    user:         @test_user
   })
 
   songs.each do |song|
@@ -29,7 +33,8 @@ song_data.each_pair do |artist_name, songs|
       title:        song[:title],
       album:        song[:album],
       preview_url:  song[:preview_link],
-      artist:       current_artist
+      artist:       current_artist,
+      user:         @test_user
     })
   end
 end

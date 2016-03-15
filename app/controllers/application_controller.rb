@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def get_current_user
     user_id = session[:user_id]
-    if user_id
+    if User.exists?(session[:user_id])
       @current_user = User.find(user_id)
     else
       @current_user = nil

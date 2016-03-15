@@ -1,1 +1,15 @@
 <h2><%= @user.username %> <%= link_to("(edit)", edit_user_path(@user)) if @current_user == @user %></h2>
+
+<h3>Submitted Songs</h3>
+<ul>
+  <% @user.songs.each do |song| %>
+    <li><%= link_to song.title, song %> by <%= link_to song.artist.name, song.artist %></li>
+  <% end %>
+</ul>
+
+<h3>Submitted Artists</h3>
+<ul>
+  <% @user.artists.each do |artist| %>
+    <li><%= link_to artist.name, artist %></li>
+  <% end %>
+</ul>

@@ -1,5 +1,6 @@
 <h2><%= @artist.name %> <%= link_to("(edit)", edit_artist_path(@artist)) if @current_user %></h2>
 <h4><%= @artist.nationality %></h4>
+<h4>Submitted by <%= link_to @artist.user.username, @artist.user %></h4>
 
 <%= image_tag @artist.photo_url, class: "artist-photo" %>
 

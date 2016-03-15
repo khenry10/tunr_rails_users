@@ -1,5 +1,6 @@
 <h2><%= @song.title %> <%= link_to("(edit)", edit_song_path(@song)) if @current_user %></h2>
 <h3>By: <%= link_to @song.artist.name, @song.artist %></h3>
+<h4>Submitted by <%= link_to @song.user.username, @song.user %></h4>
 
 Album: <%= @song.album %></br>
 

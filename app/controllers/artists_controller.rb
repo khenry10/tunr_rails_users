@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
   # create
   def create
     return unless authorized
-    @artist = Artist.create!(artist_params)
+    @artist = @current_user.artists.create!(artist_params)
 
     redirect_to @artist
   end

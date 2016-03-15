@@ -3,4 +3,5 @@ class Song < ActiveRecord::Base
   validates :artist, presence: true
   validates :title, presence: true
   belongs_to :user
+  validates :user, presence: true
 end
