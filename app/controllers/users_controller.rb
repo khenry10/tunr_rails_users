@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     if @current_user == @user
       return true
     else
-      puts "You can edit only your own profile."
+      flash[:alert] = "You can edit only your own profile."
       redirect_to :root
       return false
     end

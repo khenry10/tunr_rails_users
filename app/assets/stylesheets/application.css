@@ -93,3 +93,10 @@
  span.nationality {
    font-size: .5em;
  }
+
+ .alert{
+   color:#f00;
+ }
+ .notice{
+   color:#00f;
+ }

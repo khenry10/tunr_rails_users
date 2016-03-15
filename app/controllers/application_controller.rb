@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     if @current_user
       return true
     else
-      puts "You must be signed in to do that!"
+      flash[:alert] = "You must be signed in to do that!"
       redirect_to :root
       return false
     end
